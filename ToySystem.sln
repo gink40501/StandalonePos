@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToSystem", "ToSystem.csproj", "{5C46F841-4F08-48C8-8F96-0A15FAFB8680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
+		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Release|ARM64.ActiveCfg = Release|ARM64
+		{5C46F841-4F08-48C8-8F96-0A15FAFB8680}.Release|ARM64.Build.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FCF59F2-50ED-4154-9DA0-215DCDD1A0DF}
+	EndGlobalSection
+EndGlobal
