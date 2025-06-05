@@ -38,12 +38,8 @@
             BtnPurchase = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
-            menuStrip1 = new System.Windows.Forms.MenuStrip();
-            關閉系統ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            讀取logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -137,29 +133,6 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { 關閉系統ToolStripMenuItem, 讀取logToolStripMenuItem });
-            menuStrip1.Location = new System.Drawing.Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new System.Drawing.Size(821, 43);
-            menuStrip1.TabIndex = 13;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // 關閉系統ToolStripMenuItem
-            // 
-            關閉系統ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            關閉系統ToolStripMenuItem.Name = "關閉系統ToolStripMenuItem";
-            關閉系統ToolStripMenuItem.Size = new System.Drawing.Size(135, 39);
-            關閉系統ToolStripMenuItem.Text = "關閉系統";
-            // 
-            // 讀取logToolStripMenuItem
-            // 
-            讀取logToolStripMenuItem.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            讀取logToolStripMenuItem.Name = "讀取logToolStripMenuItem";
-            讀取logToolStripMenuItem.Size = new System.Drawing.Size(122, 39);
-            讀取logToolStripMenuItem.Text = "讀取log";
-            // 
             // Desingener
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,18 +140,13 @@
             ClientSize = new System.Drawing.Size(821, 728);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
-            Controls.Add(menuStrip1);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            MainMenuStrip = menuStrip1;
             Name = "Desingener";
             StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             Text = "首頁";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -190,9 +158,6 @@
         private System.Windows.Forms.Button Report;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 關閉系統ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 讀取logToolStripMenuItem;
         private System.Windows.Forms.Button BtnPrice;
     }
 }
