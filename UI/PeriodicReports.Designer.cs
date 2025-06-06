@@ -178,7 +178,6 @@
             Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Name = "PeriodicReports";
             Text = "PeriodicReports";
-            Load += this.PeriodicReports_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
