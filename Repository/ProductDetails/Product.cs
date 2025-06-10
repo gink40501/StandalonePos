@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace 一盒蛋玩具店.Repository.ProductDetails
 {
@@ -18,7 +12,7 @@ namespace 一盒蛋玩具店.Repository.ProductDetails
         public ulong ProductId { get; init; }
 
         /// <summary>商品條碼</summary>
-         [DisplayName("商品條碼")]
+        [DisplayName("商品條碼")]
         public ulong Barcode { get; set; }
 
         /// <summary>商品名稱</summary>

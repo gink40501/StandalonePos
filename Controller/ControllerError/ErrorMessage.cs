@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 
 
 namespace 一盒蛋玩具店.Controller.Error
 {
-    public  enum Error
+    public enum Error
     {
         /// <summary>
         /// 正常

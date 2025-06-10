@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Markup;
+using 一盒蛋玩具店.Controller.Error;
 using 一盒蛋玩具店.Repository.DataOperations;
 using 一盒蛋玩具店.Repository.ProductDetails;
 using 一盒蛋玩具店.Repository.ProgramToolkit;
-using static System.Net.WebRequestMethods;
-using System.ComponentModel;
-using 一盒蛋玩具店.Controller.Error;
-using HarfBuzzSharp;
-using static 一盒蛋玩具店.Controller.Controllers;
 
 namespace 一盒蛋玩具店.Controller
 {
@@ -32,7 +23,7 @@ namespace 一盒蛋玩具店.Controller
             /// <param name="data"></param>
             public static void SetDataService(GenericDataService<T> data)
             {
-                _dataService= data;
+                _dataService = data;
             }
             /// <summary>
             /// 搜尋符合條件的全部資料
@@ -83,7 +74,7 @@ namespace 一盒蛋玩具店.Controller
             /// 移除資料
             /// </summary>
             /// <param name="filter">委派</param>
-            public static void Remove(Func<T,bool>filter)
+            public static void Remove(Func<T, bool> filter)
             {
                 _dataService.Remove(filter);
                 _dataService.Save();
@@ -118,7 +109,7 @@ namespace 一盒蛋玩具店.Controller
             /// <param name="updateAction">委派更改的資料</param>
             /// <param name="error">錯誤資料</param>
             /// <exception cref="ToyStoreException"></exception>
-            public static void Updata(Func<T,bool> filter, Action<T> updateAction, Error.Error error)
+            public static void Updata(Func<T, bool> filter, Action<T> updateAction, Error.Error error)
             {
                 try
                 {
@@ -135,14 +126,14 @@ namespace 一盒蛋玩具店.Controller
             /// </summary>
             /// <param name="func">委派條件</param>
             /// <returns>是否有資料</returns>
-            public static bool Exists(Func<T,bool> func)
+            public static bool Exists(Func<T, bool> func)
             {
                 try
                 {
                     _dataService.Find(func);
                     return true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return false;
                 }
@@ -271,7 +262,7 @@ namespace 一盒蛋玩具店.Controller
         /// </summary>
         /// <param name="filter">篩選條件</param>
         /// <returns></returns>
-        public static List<ProductPrice> FindAllProductPrice( Func<ProductPrice, bool> filter = null)
+        public static List<ProductPrice> FindAllProductPrice(Func<ProductPrice, bool> filter = null)
         {
             ControllersPackage<ProductPrice>.SetDataService(_porductPrice);
             return ControllersPackage<ProductPrice>.FindAll(filter, Error.Error.PriceInformation);
@@ -280,7 +271,7 @@ namespace 一盒蛋玩具店.Controller
         /// 移除販賣價格
         /// </summary>
         /// <param name="func">篩選條件</param>
-        public static void RemoveProductPrice(Func <ProductPrice,bool> func=null)
+        public static void RemoveProductPrice(Func<ProductPrice, bool> func = null)
         {
             ControllersPackage<ProductPrice>.SetDataService(_porductPrice);
             ControllersPackage<ProductPrice>.Remove(func);
@@ -295,9 +286,9 @@ namespace 一盒蛋玩具店.Controller
         /// <param name="purchaseTime">進貨時間</param>
         /// <param name="quantity">庫存總量</param>
         /// <param name="unitPrice">進貨總價</param>
-        public static void AddPurchase(ulong purchaseOrderNumber,ulong productId,ulong supplierId,DateTime purchaseTime,int quantity,int unitPrice)
+        public static void AddPurchase(ulong purchaseOrderNumber, ulong productId, ulong supplierId, DateTime purchaseTime, int quantity, int unitPrice)
         {
-            Purchase purchase=new Purchase(purchaseOrderNumber, productId, supplierId, purchaseTime, quantity, unitPrice);
+            Purchase purchase = new Purchase(purchaseOrderNumber, productId, supplierId, purchaseTime, quantity, unitPrice);
             ControllersPackage<Purchase>.SetDataService(_purchase);
             ControllersPackage<Purchase>.Add(purchase);
         }
@@ -305,7 +296,7 @@ namespace 一盒蛋玩具店.Controller
         /// 取得全部進貨資料
         /// </summary>
         /// <returns>進貨紀錄</returns>
-        public static List<Purchase> GetAllPurchase()=>_purchase.GetAll();
+        public static List<Purchase> GetAllPurchase() => _purchase.GetAll();
         /// <summary>
         /// 搜尋進貨紀錄
         /// </summary>
@@ -314,7 +305,7 @@ namespace 一盒蛋玩具店.Controller
         public static List<Purchase> FindAllPurchases(Func<Purchase, bool> filter = null)
         {
             ControllersPackage<Purchase>.SetDataService(_purchase);
-           return ControllersPackage<Purchase>.FindAll(filter, Error.Error.PurchaseNotFound);
+            return ControllersPackage<Purchase>.FindAll(filter, Error.Error.PurchaseNotFound);
         }
         /// <summary>
         /// 取得進貨資料(頁)
@@ -325,7 +316,7 @@ namespace 一盒蛋玩具店.Controller
         public static List<Purchase> GetPurchasePagination(int pageNumber, Func<Purchase, bool> filter = null)
         {
             ControllersPackage<Purchase>.SetDataService(_purchase);
-            return  ControllersPackage<Purchase>.GetPagination(pageNumber, filter);
+            return ControllersPackage<Purchase>.GetPagination(pageNumber, filter);
         }
         /// <summary>
         /// 加入庫存
@@ -333,9 +324,9 @@ namespace 一盒蛋玩具店.Controller
         /// <param name="productId">商品ID</param>
         /// <param name="quantity">庫存</param>
         /// <param name="dateTime">更新時間</param>
-        public static void AddInventory(ulong productId,int quantity,DateTime dateTime)
+        public static void AddInventory(ulong productId, int quantity, DateTime dateTime)
         {
-            Inventory inventory= new Inventory(productId,quantity,dateTime);
+            Inventory inventory = new Inventory(productId, quantity, dateTime);
             ControllersPackage<Inventory>.SetDataService(_inventory);
             ControllersPackage<Inventory>.Add(inventory);
         }
@@ -345,10 +336,10 @@ namespace 一盒蛋玩具店.Controller
         /// <param name="filter">委派條件</param>
         /// <returns>庫存資料</returns>
         /// <exception cref="ToyStoreException"></exception>
-        public static Inventory FindInventory(Func<Inventory,bool> filter = null)
+        public static Inventory FindInventory(Func<Inventory, bool> filter = null)
         {
             ControllersPackage<Inventory>.SetDataService(_inventory);
-           return ControllersPackage<Inventory>.Find(filter, Error.Error.NoStockFound);
+            return ControllersPackage<Inventory>.Find(filter, Error.Error.NoStockFound);
         }
         /// <summary>
         /// 修改庫存
@@ -364,14 +355,14 @@ namespace 一盒蛋玩具店.Controller
         /// 取得全部庫存
         /// </summary>
         /// <returns></returns>
-        public static List<Inventory> GetAllInventory()=>_inventory.GetAll();
+        public static List<Inventory> GetAllInventory() => _inventory.GetAll();
         /// <summary>
         /// 新增商品資料
         /// </summary>
         /// <param name="barcode">條碼</param>
         /// <param name="name">商品名稱</param>
         /// <param name="categoryId">類型ID</param>
-        public static void AddProduct(ulong barcode,string name,ulong categoryId)
+        public static void AddProduct(ulong barcode, string name, ulong categoryId)
         {
             ControllersPackage<Product>.SetDataService(_product);
 
@@ -393,7 +384,7 @@ namespace 一盒蛋玩具店.Controller
         public static List<Product> FindAllProduct(Func<Product, bool> filter = null)
         {
             ControllersPackage<Product>.SetDataService(_product);
-           return ControllersPackage<Product>.FindAll(filter, Error.Error.ProductNotFound);
+            return ControllersPackage<Product>.FindAll(filter, Error.Error.ProductNotFound);
         }
         /// <summary>
         /// 是否有商品
@@ -409,7 +400,7 @@ namespace 一盒蛋玩具店.Controller
         /// 取得全部商品全部資料
         /// </summary>
         /// <returns>商品</returns>
-        public static List<Product> GetAllProduct()=>_product.GetAll();
+        public static List<Product> GetAllProduct() => _product.GetAll();
         /// <summary>
         /// 取得商品資料(頁)
         /// </summary>
@@ -429,7 +420,7 @@ namespace 一盒蛋玩具店.Controller
         public static ProductPrice GetValidPrice(ulong productId)
         {
             DateTime dateTime = DateTime.Now;
-            ProductPrice productPrice=null;
+            ProductPrice productPrice = null;
             List<ProductPrice> productPrices = FindAllProductPrice(p => p.ProductId == productId);
             var sortPorductPrice = productPrices.OrderBy(p => p.EffectiveTime).ToList();
             foreach (var p in sortPorductPrice)
@@ -462,7 +453,7 @@ namespace 一盒蛋玩具店.Controller
         public static Product FindProduct(Func<Product, bool> product)
         {
             ControllersPackage<Product>.SetDataService(_product);
-           return ControllersPackage<Product>.Find(product, Error.Error.ProductNotFound);
+            return ControllersPackage<Product>.Find(product, Error.Error.ProductNotFound);
         }
         /// <summary>
         /// 取得下一個id
@@ -475,7 +466,7 @@ namespace 一盒蛋玩具店.Controller
         /// </summary>
         /// <param name="name">廠商名</param>
         /// <param name="telephone">電話</param>
-        public static void AddSupplier(string name,string telephone)
+        public static void AddSupplier(string name, string telephone)
         {
             ControllersPackage<Supplier>.SetDataService(_supplier);
             Supplier supplier = new Supplier(_supplier.GetNextId(p => p.SupplierId), name, telephone);
@@ -510,13 +501,13 @@ namespace 一盒蛋玩具店.Controller
         public static List<Supplier> GetSupplierPagination(int pageNumber, Func<Supplier, bool> filter = null)
         {
             ControllersPackage<Supplier>.SetDataService(_supplier);
-           return ControllersPackage < Supplier >.GetPagination(pageNumber, filter);
+            return ControllersPackage<Supplier>.GetPagination(pageNumber, filter);
         }
         /// <summary>
         /// 取得全部廠商資料
         /// </summary>
         /// <returns>廠商資料</returns>
-        public static List<Supplier> GetAllSupplier()=>_supplier.GetAll();
+        public static List<Supplier> GetAllSupplier() => _supplier.GetAll();
         /// <summary>
         /// 廠商 ID 更新廠商資料。
         /// </summary>
@@ -525,7 +516,7 @@ namespace 一盒蛋玩具店.Controller
         public static void UpdateSupplier(ulong supplierId, Action<Supplier> updateAction)
         {
             ControllersPackage<Supplier>.SetDataService(_supplier);
-            ControllersPackage<Supplier>.Updata(s => s.SupplierId == supplierId, updateAction,Error.Error.VendorNotFound);
+            ControllersPackage<Supplier>.Updata(s => s.SupplierId == supplierId, updateAction, Error.Error.VendorNotFound);
         }
         /// <summary>
         /// 廠商最後的頁碼
@@ -543,7 +534,7 @@ namespace 一盒蛋玩具店.Controller
         public static int GetCatgoryLastPage()
         {
             ControllersPackage<Category>.SetDataService(_category);
-           return ControllersPackage<Category>.LastPage();
+            return ControllersPackage<Category>.LastPage();
         }
 
         /// <summary>
@@ -552,8 +543,8 @@ namespace 一盒蛋玩具店.Controller
         /// <param name="name">名稱</param>
         public static void AddCatgory(string name)
         {
-            ControllersPackage < Category >.SetDataService(_category);
-            if (!ControllersPackage<Category>.Exists(p=>p.Name==name))
+            ControllersPackage<Category>.SetDataService(_category);
+            if (!ControllersPackage<Category>.Exists(p => p.Name == name))
             {
                 throw new ToyStoreException(Error.Error.CatgoryNameAlreadyExists);
             }
@@ -563,17 +554,17 @@ namespace 一盒蛋玩具店.Controller
                 ControllersPackage<Category>.Add(category);
             }
         }
-       /// <summary>
-       /// 搜尋類別
-       /// </summary>
-       /// <param name="category">委派類別</param>
-       /// <returns></returns>
-        public static Category  FindCategory(Func<Category,bool> category)
+        /// <summary>
+        /// 搜尋類別
+        /// </summary>
+        /// <param name="category">委派類別</param>
+        /// <returns></returns>
+        public static Category FindCategory(Func<Category, bool> category)
         {
             ControllersPackage<Category>.SetDataService(_category);
             if (ControllersPackage<Category>.Exists(category))
             {
-                return ControllersPackage<Category>.Find(category,Error.Error.CatgoryNotFound);
+                return ControllersPackage<Category>.Find(category, Error.Error.CatgoryNotFound);
             }
             return null;
         }
@@ -581,7 +572,7 @@ namespace 一盒蛋玩具店.Controller
         /// 獲得全部類型資料
         /// </summary>
         /// <returns>類型</returns>
-        public static List<Category> GetAllCategory()=>_category.GetAll();
+        public static List<Category> GetAllCategory() => _category.GetAll();
         /// <summary>
         /// 取得商品分類
         /// </summary>
@@ -591,7 +582,7 @@ namespace 一盒蛋玩具店.Controller
         public static List<Category> GetCatgoryPagination(int pageNumber, Func<Category, bool> filter = null)
         {
             ControllersPackage<Category>.SetDataService(_category);
-           return ControllersPackage < Category >.GetPagination(pageNumber, filter);
+            return ControllersPackage<Category>.GetPagination(pageNumber, filter);
         }
         /// <summary>
         /// 修改商品分類
@@ -611,7 +602,7 @@ namespace 一盒蛋玩具店.Controller
         public static Sale FindSale(Func<Sale, bool> filter = null)
         {
             ControllersPackage<Sale>.SetDataService(_sale);
-           return ControllersPackage<Sale>.Find(filter, Error.Error.NoSalesDataFound);
+            return ControllersPackage<Sale>.Find(filter, Error.Error.NoSalesDataFound);
         }
         /// <summary>
         /// 加入銷售紀錄
@@ -621,7 +612,7 @@ namespace 一盒蛋玩具店.Controller
         public static void AddSale(ulong orderNumber, int totalAmount)
         {
             DateTime saleTime = DateTime.Now;
-            Sale sale = new Sale(orderNumber,saleTime,totalAmount);
+            Sale sale = new Sale(orderNumber, saleTime, totalAmount);
             ControllersPackage<Sale>.SetDataService(_sale);
             ControllersPackage<Sale>.Add(sale);
         }

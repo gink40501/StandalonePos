@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace 一盒蛋玩具店.Repository.ProgramToolkit
 {
@@ -12,7 +8,7 @@ namespace 一盒蛋玩具店.Repository.ProgramToolkit
     /// 分頁服務
     /// </summary>
     /// <typeparam name="T">資料</typeparam>
-    internal static  class PaginationToolkit<T>
+    internal static class PaginationToolkit<T>
     {
 
         /// <summary>

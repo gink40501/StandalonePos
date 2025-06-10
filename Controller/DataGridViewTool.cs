@@ -1,16 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Common;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using 一盒蛋玩具店.Controller.Error;
-using 一盒蛋玩具店.Repository.ProductDetails;
 using static 一盒蛋玩具店.SaleForm;
 
 namespace 一盒蛋玩具店.Controller

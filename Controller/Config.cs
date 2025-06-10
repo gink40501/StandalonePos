@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace 一盒蛋玩具店.Controller
 {
@@ -17,8 +12,9 @@ namespace 一盒蛋玩具店.Controller
         /// 建構子初始化
         /// </summary>
         /// <param name="folder">資料夾名稱</param>
-        public Config(string folder) {
-            Path= Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public Config(string folder)
+        {
+            Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             Path = System.IO.Path.Combine(Path, folder);
         }
         /// <summary>
@@ -26,7 +22,7 @@ namespace 一盒蛋玩具店.Controller
         /// </summary>
         /// <param name="dateTime">日期</param>
         /// <returns>(路徑\年-月\年-月-日) </returns>
-        public string RecordSalesHistoryPath(DateTime? dateTime=null)
+        public string RecordSalesHistoryPath(DateTime? dateTime = null)
         {
             DateTime nowDateTime = (dateTime == null) ? DateTime.Now : (DateTime)dateTime;
             string path = System.IO.Path.Combine(Path, nowDateTime.ToString("yyy-MM"));

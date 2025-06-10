@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace 一盒蛋玩具店.Repository.ProductDetails
 {
     /// <summary>
     /// 商品價格紀錄，可用於多種價格策略
     /// </summary>
-    internal class ProductPrice 
+    internal class ProductPrice
     {
         /// <summary>
         /// 所屬商品的 ID
